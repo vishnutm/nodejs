@@ -2,14 +2,13 @@
 
 
 import express, { Request, Response } from 'express';
+import ValidateResource from '../middleware/validateResource';
+import { createUserSchema } from '../schema/user.schema';
+import { createUserHandler } from '../controller/user.controller';
 
 const router = express.Router();
 
-// Add new route for user creation
-router.post('/api/users', (req: Request, res: Response) => {
-  // Add code for user creation here
 
-  res.sendStatus(200)
-});
+router.post('/api/users', ValidateResource(createUserSchema), createUserHandler )
 
 export default router;

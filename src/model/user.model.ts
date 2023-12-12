@@ -1,4 +1,4 @@
-import { ModelOptions, Severity, pre, prop , DocumentType} from "@typegoose/typegoose";
+import { ModelOptions, Severity, pre, prop , DocumentType, getModelForClass} from "@typegoose/typegoose";
 import  argon2d  from "argon2";
 import logger from '../utils/logger'
 import { nanoid } from "nanoid";
@@ -69,3 +69,8 @@ export class User {
     }
 
 }
+
+
+const UserModel = getModelForClass(User);
+
+export default UserModel;
